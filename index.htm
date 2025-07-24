@@ -2,151 +2,151 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>DDS專題週誌</title>
-
-    <!-- AOS 動畫樣式 -->
+    <title>DDS 專題週誌</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
         :root {
-            --timeline-gap: 40px;
-            --label-width: 100px;
-            --card-bg: #eef5ff;
-            --highlight: #3399ff;
+            --bg: #0f0f1a;
+            --card-bg: #1c1c2b;
+            --text: #e0e0e0;
+            --accent: #00ffff;
         }
 
         body {
             font-family: "Segoe UI", "微軟正黑體", sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             padding: 40px;
         }
 
         h1 {
-            color: #003366;
-            border-bottom: 2px solid #ccc;
+            color: var(--accent);
+            border-bottom: 2px solid #444;
             padding-bottom: 10px;
         }
 
-        .timeline {
+        .week-header {
             display: grid;
-            grid-template-columns: var(--label-width) 1fr;
-            grid-row-gap: 30px;
-            grid-column-gap: var(--timeline-gap);
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--accent);
         }
 
-        .time-label {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            font-weight: bold;
-            color: var(--highlight);
-            align-self: start;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 30px;
         }
 
         .card {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,255,255,0.15);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
             .card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+                transform: translateY(-6px);
+                box-shadow: 0 0 30px rgba(0,255,255,0.3);
             }
 
         .progress {
-            color: #003399;
+            color: #89d3ff;
         }
 
         .reflection {
-            color: #444;
+            color: #ccc;
         }
 
         img {
-            width: 90%;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            margin-top: 10px;
+        }
+
+        .video-link {
+            background-color: #292940;
+            padding: 10px;
+            border-left: 4px solid var(--accent);
             margin-top: 10px;
         }
 
         a {
-            color: #0066cc;
+            color: #66eaff;
             text-decoration: none;
         }
 
-        .video-link {
-            background-color: var(--card-bg);
-            padding: 10px;
-            border-left: 5px solid var(--highlight);
-            margin-top: 15px;
+        h3, h4 {
+            color: var(--accent);
         }
     </style>
 </head>
 <body>
-    <h1>DDS專題週誌</h1>
+    <h1>DDS 專題週誌</h1>
 
-    <div class="timeline">
+    <!-- 上方週次格子列 -->
+    <div class="week-header">
+        <div>Week 1<br>(6/30–7/6)</div>
+        <div>Week 2<br>(7/7–7/13)</div>
+        <div>Week 3<br>(7/14–7/20)</div>
+        <div>Week 4<br>(7/21–7/27)</div>
+    </div>
+
+    <!-- 週誌內容卡片並排 -->
+    <div class="grid">
 
         <!-- Week 1 -->
-        <div class="time-label">Week 1<br>(6/30–7/6)</div>
-        <div class="card" data-aos="fade-right">
+        <div class="card" data-aos="fade-up">
             <p class="progress">觀看小梅哥影片了解 DDS 的基本原理與電路<br>網路上搜尋一些有關 DDS 的資料</p>
-            <p class="reflection">進度與問題：影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。由於理解能力稍弱，需反覆觀看影片以加深記憶，稍微拖延了一些進度。</p>
+            <p class="reflection">影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。因理解能力稍弱，需反覆觀看影片加深記憶。</p>
             <div class="video-link">
                 <strong>🎥 教學影片：</strong>
-                <a href="https://www.youtube.com/watch?v=Tpd9pP42LmI" target="_blank">點我觀看 YouTube 上的 DDS 原理與實作教學影片</a>
+                <a href="https://www.youtube.com/watch?v=Tpd9pP42LmI" target="_blank">YouTube 教學影片</a>
             </div>
             <div class="video-link">
                 <strong>🎥 教學影片：</strong>
-                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">點我觀看 Bilibili 上的 DDS 原理與實作教學影片</a>
+                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
             </div>
         </div>
 
         <!-- Week 2 -->
-        <div class="time-label">Week 2<br>(7/7–7/13)</div>
-        <div class="card" data-aos="fade-left">
+        <div class="card" data-aos="fade-up">
             <p class="progress">觀看剩餘影片（實作部分）並與組員討論 Quartus II 的應用方式</p>
-            <p class="reflection">進度與問題：跟著影片在 Quartus 進行實作並學習初始值設定與 IP ROM 存取。起初不理解 .mif 檔的產出流程，也因版本差異導致 ROM 設定路徑不同，多虧老師協助才找到方法。</p>
+            <p class="reflection">跟著影片在 Quartus 實作並學習 IP ROM 存取。初期不理解 .mif 產出流程，多虧老師協助才找出路徑。</p>
             <div class="video-link">
                 <strong>🎥 教學影片：</strong>
-                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">點我觀看 Bilibili 上的 DDS 原理與實作教學影片</a>
+                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
             </div>
         </div>
 
         <!-- Week 3 -->
-        <div class="time-label">Week 3<br>(7/14–7/20)</div>
-        <div class="card" data-aos="fade-right">
+        <div class="card" data-aos="fade-up">
             <p class="progress">反覆觀看影片加深記憶，完成 .mif 檔產生並實作多種波形</p>
-            <p class="reflection">進度與問題：一開始用 PyCharm 產生的 .mif 檔案其實正確，只是位寬值設錯導致波形異常。修正後成功顯示正弦波、方波、三角波和鋸齒波，完成實作部分。</p>
-            <h3>DEPTH = 2048, WIDTH = 10, 最大振幅為 : 255</h3>
-            <h4>正弦波模擬結果</h4>
-            <img src="images/ModelSine.png" alt="ModelSine 模擬">
-            <h4>方波模擬結果</h4>
-            <img src="images/ModelSquare.png" alt="ModelSquare 模擬">
-            <h4>鋸齒波模擬結果</h4>
-            <img src="images/ModelSawtooth.png" alt="ModelSawtooth 模擬">
-            <h4>三角波模擬結果</h4>
-            <img src="images/ModelTriangle.png" alt="ModelTriangle 模擬">
+            <p class="reflection">起初 PyCharm 產出檔案正確，但位寬設錯導致波形異常。修正後成功產出正弦、方波、三角波與鋸齒波。</p>
+            <h4>模擬參數：DEPTH = 2048, WIDTH = 10, 最大振幅 = 255</h4>
+            <h4>正弦波</h4><img src="images/ModelSine.png" alt="ModelSine">
+            <h4>方波</h4><img src="images/ModelSquare.png" alt="ModelSquare">
+            <h4>鋸齒波</h4><img src="images/ModelSawtooth.png" alt="ModelSawtooth">
+            <h4>三角波</h4><img src="images/ModelTriangle.png" alt="ModelTriangle">
         </div>
 
         <!-- Week 4 -->
-        <div class="time-label">Week 4<br>(7/21–7/27)</div>
-        <div class="card" data-aos="fade-left">
-            <p class="progress">與教授 meeting，討論實作模擬上遇到的問題及解決方法，並討論下一個完成目標。<br>給不同的位寬、深度，去跑波形圖並搜尋 DDS 實作資料。</p>
+        <div class="card" data-aos="fade-up">
+            <p class="progress">與教授 meeting，討論模擬問題與解法<br>探索不同位寬、深度對波形影響，並進行 DDS 實作資料延伸</p>
         </div>
 
     </div>
 
-    <!-- AOS 動畫初始化 -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
