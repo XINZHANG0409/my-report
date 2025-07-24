@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>DDS 專題週誌</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
     <style>
         :root {
             --bg-color: #121212;
@@ -103,55 +102,82 @@
                 transform: scale(1.03);
                 box-shadow: 0 4px 16px rgba(0,0,0,0.6);
             }
+
+        #toggle-all {
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            border: none;
+            background-color: var(--accent-color);
+            color: #000;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            #toggle-all:hover {
+                background-color: #00e6ff;
+            }
     </style>
 </head>
 <body>
     <h1>DDS 專題週誌</h1>
 
+    <button id="toggle-all">展開全部</button>
+
     <div class="week" data-aos="fade-up">
         <h2>Week 1 (6/30–7/6)</h2>
-        <p class="progress">觀看小梅哥影片了解 DDS 的基本原理與電路<br>網路上搜尋一些有關 DDS 的資料</p>
-        <p class="reflection">問題與進度 : 影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。由於理解能力稍弱，需反覆觀看影片以加深記憶。</p>
-        <div class="video-box">
-            <strong>🎥 教學影片：</strong>
-            <a href="https://www.youtube.com/watch?v=Tpd9pP42LmI" target="_blank">YouTube 教學影片</a>
-        </div>
-        <div class="video-box">
-            <strong>🎥 教學影片：</strong>
-            <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
+        <div class="week-content">
+            <p class="progress">觀看小梅哥影片了解 DDS 的基本原理與電路<br>網路上搜尋一些有關 DDS 的資料</p>
+            <p class="reflection">問題與進度 : 影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。由於理解能力稍弱，需反覆觀看影片以加深記憶。</p>
+            <div class="video-box">
+                <strong>🎥 教學影片：</strong>
+                <a href="https://www.youtube.com/watch?v=Tpd9pP42LmI" target="_blank">YouTube 教學影片</a>
+            </div>
+            <div class="video-box">
+                <strong>🎥 教學影片：</strong>
+                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
+            </div>
         </div>
     </div>
 
+    <!-- Week 2 -->
     <div class="week" data-aos="fade-up">
         <h2>Week 2 (7/7–7/13)</h2>
-        <p class="progress">觀看剩餘影片（實作部分）並與組員討論 Quartus II 的應用方式</p>
-        <p class="reflection">問題與進度 : 跟著影片在 Quartus 實作並學習 IP ROM 存取。起初不理解 .mif 產出流程，多虧老師協助才找出路徑。</p>
-        <div class="video-box">
-            <strong>🎥 教學影片：</strong>
-            <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
+        <div class="week-content">
+            <p class="progress">觀看剩餘影片（實作部分）並與組員討論 Quartus II 的應用方式</p>
+            <p class="reflection">問題與進度 : 跟著影片在 Quartus 實作並學習 IP ROM 存取。起初不理解 .mif 產出流程，多虧老師協助才找出路徑。</p>
+            <div class="video-box">
+                <strong>🎥 教學影片：</strong>
+                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV/" target="_blank">Bilibili 教學影片</a>
+            </div>
         </div>
     </div>
 
+    <!-- Week 3 -->
     <div class="week" data-aos="fade-up">
         <h2>Week 3 (7/14–7/20)</h2>
-        <p class="progress">反覆觀看影片加深記憶，完成 .mif 檔產生並實作多種波形</p>
-        <p class="reflection">問題與進度 : 起初 PyCharm 產出檔案正確，但位寬設錯導致波形異常。修正後成功產出正弦、方波、三角波與鋸齒波。</p>
-        <h2>模擬參數：DEPTH = 2048, WIDTH = 10, 最大振幅 = 255</h2>
-        <h2>正弦波模擬結果</h2>
-        <img src="images/ModelSine.png" alt="ModelSine 模擬">
-        <h2>方波模擬結果</h2>
-        <img src="images/ModelSquare.png" alt="ModelSquare 模擬">
-        <h2>鋸齒波模擬結果</h2>
-        <img src="images/ModelSawtooth.png" alt="ModelSawtooth 模擬">
-        <h2>三角波模擬結果</h2>
-        <img src="images/ModelTriangle.png" alt="ModelTriangle 模擬">
+        <div class="week-content">
+            <p class="progress">反覆觀看影片加深記憶，完成 .mif 檔產生並實作多種波形</p>
+            <p class="reflection">問題與進度 : 起初 PyCharm 產出檔案正確，但位寬設錯導致波形異常。修正後成功產出正弦、方波、三角波與鋸齒波。</p>
+            <h2>模擬參數：DEPTH = 2048, WIDTH = 10, 最大振幅 = 255</h2>
+            <h2>正弦波模擬結果</h2>
+            <img src="images/ModelSine.png" alt="ModelSine 模擬">
+            <h2>方波模擬結果</h2>
+            <img src="images/ModelSquare.png" alt="ModelSquare 模擬">
+            <h2>鋸齒波模擬結果</h2>
+            <img src="images/ModelSawtooth.png" alt="ModelSawtooth 模擬">
+            <h2>三角波模擬結果</h2>
+            <img src="images/ModelTriangle.png" alt="ModelTriangle 模擬">
+        </div>
     </div>
 
+    <!-- Week 4 -->
     <div class="week" data-aos="fade-up">
         <h2>Week 4 (7/21–7/27)</h2>
-        <p class="progress">與教授 meeting，討論模擬遇到問題與解法<br>探索不同位寬、深度對波形影響，並搜尋 DDS 實作資料</p>
-        <p class="reflection">問題與進度 : 因為還無法拿到FPGA板模擬的情況下，只能繼續使用Quartus II 模擬更多不同位寬、深度及振幅的波行<br>
-                              取得更多的數據資料。</p>
+        <div class="week-content">
+            <p class="progress">與教授 meeting，討論模擬遇到問題與解法<br>探索不同位寬、深度對波形影響，並搜尋 DDS 實作資料</p>
+            <p class="reflection">問題與進度 : 因為還無法拿到FPGA板模擬的情況下，只能繼續使用Quartus II 模擬更多不同位寬、深度及振幅的波行<br>取得更多的數據資料。</p>
             <div class="video-box">
                 <strong>📘 相關網頁展示：</strong>
                 <a href="https://doelab.github.io/posts/DSPonFPGALab1/#demonstration-on-fpga" target="_blank">
@@ -160,15 +186,33 @@
             </div>
             <div class="video-box">
                 <strong>📘 相關網頁展示：</strong>
-                <a href="https://blog.csdn.net/qq_43156031/article/details/142433065?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-142433065-blog-123655576.235^v43^pc_blog_bottom_relevance_base4&spm=1001.2101.3001.4242.1&utm_relevant_index=3" target="_blank">
+                <a href="https://blog.csdn.net/qq_43156031/article/details/142433065" target="_blank">
                     點我前往 FPGA實現頻率、幅度、相位可調的DDS以及DDS Compiler IP核的使用驗證
                 </a>
             </div>
-    </div>
+        </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true });
+
+            // 點擊週數開關週內容（每週單獨）
+            document.querySelectorAll('.week h2').forEach(heading => {
+                heading.addEventListener('click', () => {
+                    const content = heading.nextElementSibling;
+                    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                });
+            });
+
+            // 展開／收合全部按鈕
+            let allVisible = false;
+            document.getElementById('toggle-all').addEventListener('click', () => {
+                document.querySelectorAll('.week .week-content').forEach(content => {
+                    content.style.display = allVisible ? 'none' : 'block';
+                });
+                allVisible = !allVisible;
+                document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
+            });
+        </script>
 </body>
 </html>
