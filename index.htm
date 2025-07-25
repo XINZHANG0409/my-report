@@ -181,36 +181,42 @@
             <div class="video-box">
                 <strong>📘 相關網頁展示：</strong>
                 <a href="https://doelab.github.io/posts/DSPonFPGALab1/#demonstration-on-fpga" target="_blank">
-                    點我前往 波行產生器 的 FPGA 示範網頁</a>
+                    點我前往 波行產生器 的 FPGA 示範網頁
+                </a>
+            </div>
+            <div class="video-box">
+                <strong>🎥 教學影片：</strong>
+                <a href="https://www.bilibili.com/video/BV1Qp4y1k7TV?vd_source=5e70fa5bac3f1950730340d24dbcf76a&p=2&spm_id_from=333.788.videopod.episodes" target="_blank">Bilibili 教學影片</a>
             </div>
             <div class="video-box">
                 <strong>📘 相關網頁展示：</strong>
                 <a href="https://blog.csdn.net/qq_43156031/article/details/142433065" target="_blank">
-                    點我前往 FPGA實現頻率、幅度、相位可調的DDS以及DDS Compiler IP核的使用驗證</a>
+                    點我前往 FPGA實現頻率、幅度、相位可調的DDS以及DDS Compiler IP核的使用驗證
+                </a>
             </div>
         </div>
     </div>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({ duration: 800, once: true });
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
 
-            // 點擊週數開關週內容（每週單獨）
-            document.querySelectorAll('.week h2').forEach(heading => {
-                heading.addEventListener('click', () => {
-                    const content = heading.nextElementSibling;
-                    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-                });
+        // 點擊週數開關週內容（每週單獨）
+        document.querySelectorAll('.week h2').forEach(heading => {
+            heading.addEventListener('click', () => {
+                const content = heading.nextElementSibling;
+                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
             });
+        });
 
-            // 展開／收合全部按鈕
-            let allVisible = false;
-            document.getElementById('toggle-all').addEventListener('click', () => {
-                document.querySelectorAll('.week .week-content').forEach(content => {
-                    content.style.display = allVisible ? 'none' : 'block';
-                });
-                allVisible = !allVisible;
-                document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
+        // 展開／收合全部按鈕
+        let allVisible = false;
+        document.getElementById('toggle-all').addEventListener('click', () => {
+            document.querySelectorAll('.week .week-content').forEach(content => {
+                content.style.display = allVisible ? 'none' : 'block';
             });
-        </script>
+            allVisible = !allVisible;
+            document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
+        });
+    </script>
 </body>
 </html>
