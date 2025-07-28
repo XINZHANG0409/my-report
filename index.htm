@@ -212,6 +212,14 @@
     <script>
         AOS.init({ duration: 800, once: true });
 
+        // ⬇️ 初始進入頁面時就全部收合
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.week .week-content').forEach(content => {
+                content.style.display = 'none';
+            });
+        });
+
+
         // 點擊週數開關週內容（每週單獨）
         document.querySelectorAll('.week h2').forEach(heading => {
             heading.addEventListener('click', () => {
