@@ -246,27 +246,42 @@
             <p class="nextweek">下週進度 : 測試其它波形之數據，並做紀錄。查找有關 DDS 原理及教學影片學習</p>
         </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
 
-        // 點擊週數開關週內容（每週單獨）
-        document.querySelectorAll('.week h2').forEach(heading => {
-            heading.addEventListener('click', () => {
-                const content = heading.nextElementSibling;
-                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-            });
-        });
+    <!-- Week 6 -->
+    <div class="week" data-aos="fade-up">
+        <h2>Week 6 (8/4-8/10)</h2>
+        <div class="week-content">
+            <p class="progress">
+                問題與進度 :
+            </p>
+            <p class="answer">
+            </p>
+            <h3>WIDTH = 8 ， DEPTH = 128 ， 最大振幅 = 255 的正弦波模擬</h3>
+            <img src="images/sin_8_128.png" alt="Sin_8_128 模擬">
+            <p class="nextweek">下週進度 : </p>
+        </div>
+    </div>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true });
 
-        // 展開／收合全部按鈕
-        let allVisible = false;
-        document.getElementById('toggle-all').addEventListener('click', () => {
-            document.querySelectorAll('.week .week-content').forEach(content => {
-                content.style.display = allVisible ? 'none' : 'block';
+            // 點擊週數開關週內容（每週單獨）
+            document.querySelectorAll('.week h2').forEach(heading => {
+                heading.addEventListener('click', () => {
+                    const content = heading.nextElementSibling;
+                    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                });
             });
-            allVisible = !allVisible;
-            document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
-        });
-    </script>
+
+            // 展開／收合全部按鈕
+            let allVisible = false;
+            document.getElementById('toggle-all').addEventListener('click', () => {
+                document.querySelectorAll('.week .week-content').forEach(content => {
+                    content.style.display = allVisible ? 'none' : 'block';
+                });
+                allVisible = !allVisible;
+                document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
+            });
+        </script>
 </body>
 </html>
