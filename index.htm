@@ -14,13 +14,31 @@
             --shadow-color: rgba(0, 255, 255, 0.2);
         }
 
-        body {
+        /*body {
             font-family: "Segoe UI", "微軟正黑體", sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             padding: 40px;
+        }*/
+
+        /* 1. 引入 Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap");
+
+        /* 2. 主體樣式 */
+        body {
+            font-family: "M PLUS Rounded 1c", "Segoe UI", "微軟正黑體", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px;
         }
+
+        /* 3. 強調文字可用更粗字重 */
+        h1, h2, h3, .highlight {
+            font-weight: 700;
+        }
+
 
         h1 {
             color: var(--accent-color);
