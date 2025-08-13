@@ -343,15 +343,15 @@
         <h2>Week 7 (8/11–8/17)</h2>
         <div class="week-content">
             <p class="progress">問題與進度 : 將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？</p>
-            <h3>因為 SoC 上的七段顯示器，必須把它接到數位邏輯端，而不是DAC或波形ROM。以下是我參考的實作方式</h3>
+            <h3>因為 SoC 上的七段顯示器，必須把它接到數位邏輯端，而不是 DAC 或 波形ROM。以下是我參考的實作方式</h3>
             <p class="answer">
                 - 在 FPGA / SoC 的 PL（programmable logic）中，做一組 暫存器 或 AXI-GPIO IP，輸出 7 或 8 條線給七段顯示器。<br>
                 - 這些線路的數值來自一個「7段解碼器」（BCD → 7-segment 或者任意數字 → 段選訊號），該解碼器的輸入可以是 DDS 內部的某個暫存器 、 HPS/CPU 寫入的控制暫存器，或者經過時分多工掃描的數值。
             </p>
             <p class="whycant">
-                為什麼不能直接接在DAC／ROM等元件上？<br>
-                - DAC輸出的是類比波形，七段顯示器需要的是數位段選訊號。<br>
-                - 波形ROM或累加器等單純生成DDS波形的模組，都與數位字元顯示無關。<br>
+                為什麼不能直接接在 DAC ／ ROM 等元件上？<br>
+                - DAC 輸出的是類比波形，七段顯示器需要的是數位段選訊號。<br>
+                - 波形 ROM 或 累加器等單純生成 DDS 波形的模組，都與數位字元顯示無關。<br>
                 七段顯示器是一個純數位周邊，必須有明確的 0/1 控制腳位，才會對應到段的開／關。<br>
             </p>
             <p class="func">
@@ -359,12 +359,15 @@
                 1. 設計或選用一個 7-segment 解碼器<br>
                 - 輸入：4-bit BCD（或更寬位元的數值）<br>
                 - 輸出：7條段選信號（A ~ G），外加1條小數點（可選）<br>
+                <br>
                 2. 建立一組同步暫存器或AXI-Lite介面<br>
-                - 如果你要讓CPU動態改數字，就用AXI-GPIO或AXI-Lite slave IP。<br>
+                - 如果你要讓 CPU 動態改數字，就用 AXI-GPIO 或 AXI-Lite slave IP。<br>
                 - CPU透過HPS-to-FPGA bridge寫入一個8-bit暫存器，對應到7段解碼器的輸入。<br>
+                <br>
                 3. 接FPGA/SoC的PL I/O<br>
                 - 直接把解碼器的輸出端（7或8根線）連到SoC開發板上的七段顯示器腳位。<br>
                 - 如果是多位數顯示，要做時分掃描（再多一組位選線）。<br>
+                <br>
                 4. 驗證<br>
                 - 在ModelSim裡模擬AXI寫入→暫存器改變→解碼器輸出→顯示器段選。<br>
                 - 在硬體上量測I/O腳位電平是否與預期段選相符。<br>
