@@ -366,7 +366,7 @@
                 - 若是多位數顯示器，使用 位選掃描（multiplexing） 控制哪一位亮起<br>
             </p>
             <p class="func">
-                <h3>🔧 建議模組架構</h3>
+                🔧 建議模組架構<br>
                 📦 dds_controller.v<br>
                 - 控制 DDS 的 Phase Increment<br>
                 - 提供目前的 ΔPhase 給頻率計算模組<br>
@@ -382,13 +382,13 @@
                 - 使用掃描方式顯示多位數字<br>
             </p>
             <p class="verify">
-                <h3>🧪 驗證方式</h3>
+                🧪 驗證方式<br>
                 - 在 ModelSim 中模擬 DDS 的 ΔPhase 改變，觀察頻率計算結果是否正確<br>
                 - 驗證七段顯示器是否正確顯示頻率數字<br>
                 - 在硬體上按鍵改變 ΔPhase，觀察七段顯示器是否跟著更新<br>
             </p>
             <p class="tips">
-                <h3>🧠 小技巧</h3>
+                🧠 小技巧<br>
                 - 若除法器太重，可用 ROM 查表法：ΔPhase → 頻率對應表<br>
                 - 若七段顯示器位數不夠，可顯示 kHz 或 MHz 為單位（例如顯示 "123.4k"）<br>
                 - 若使用 PWM 輸出波形，也可用頻率計數器量測實際輸出頻率<br>
