@@ -106,8 +106,12 @@
             color: yellow;
         }
 
-        .whycant {
+        .verify {
             color: snow;
+        }
+
+        .tips {
+            color: hotpink;
         }
 
         .video-box {
@@ -345,38 +349,55 @@
             <p class="progress">問題與進度 : 將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？</p>
             <h3>因為 SoC 上的七段顯示器，必須把它接到數位邏輯端，而不是 DAC 或 波形ROM。以下是我參考的實作方式</h3>
             <p class="answer">
-                - 在 FPGA / SoC 的 PL（programmable logic）中，做一組 暫存器 或 AXI-GPIO IP，輸出 7 或 8 條線給七段顯示器。<br>
-                - 這些線路的數值來自一個「7段解碼器」（BCD → 7-segment 或者任意數字 → 段選訊號），該解碼器的輸入可以是 DDS 內部的某個暫存器 、 HPS/CPU 寫入的控制暫存器，或者經過時分多工掃描的數值。
-            </p>
-            <p class="whycant">
-                為什麼不能直接接在 DAC ／ ROM 等元件上？<br>
-                - DAC 輸出的是類比波形，七段顯示器需要的是數位段選訊號。<br>
-                - 波形 ROM 或 累加器等單純生成 DDS 波形的模組，都與數位字元顯示無關。<br>
-                七段顯示器是一個純數位周邊，必須有明確的 0/1 控制腳位，才會對應到段的開／關。<br>
+                +------------------+       +------------------+       +------------------------+<br>
+                | DDS 模組         |  ---> | 頻率計算邏輯     |  ---> | 七段顯示器控制模組     |<br>
+                | (累加器 + ROM)   |       | (根據輸入參數)   |       | (段選 + 位選掃描)      |<br>
+                +------------------+       +------------------+       +------------------------+<br>
+                <br>
+                需要根據 DDS 的參數，計算出目前的輸出頻率<br>
+                - 公式 : f_out = (ΔPhase × f_clk) / 2^N<br>
+                - ΔPhase：Phase Increment 值（可以用一個暫存器儲存）<br>
+                - f_clk：系統時鐘頻率（例如 50 MHz）<br>
+                - N：Phase accumulator 的位元數（例如 32）<br>
+                這個計算可以在 RTL 中用除法器實作，或用查表法近似。<br>
+                七段顯示器控制模組<br>
+                - 將計算出的頻率（例如 123456 Hz）轉成 BCD 或十進位數字<br>
+                - 使用 7-segment decoder 將每個數字轉成段選訊號<br>
+                - 若是多位數顯示器，使用 位選掃描（multiplexing） 控制哪一位亮起<br>
             </p>
             <p class="func">
-                具體實作步驟 : <br>
-                1. 設計或選用一個 7-segment 解碼器<br>
-                - 輸入：4-bit BCD（或更寬位元的數值）<br>
-                - 輸出：7條段選信號（A ~ G），外加1條小數點（可選）<br>
+                <h3>🔧 建議模組架構</h3>
+                📦 dds_controller.v<br>
+                - 控制 DDS 的 Phase Increment<br>
+                - 提供目前的 ΔPhase 給頻率計算模組<br>
                 <br>
-                2. 建立一組同步暫存器 或 AXI-Lite 介面<br>
-                - 如果你要讓 CPU 動態改數字，就用 AXI-GPIO 或 AXI-Lite slave IP。<br>
-                - CPU透過HPS-to-FPGA bridge寫入一個8-bit暫存器，對應到7段解碼器的輸入。<br>
+                📦 frequency_calculator.v<br>
+                - 輸入：ΔPhase<br>
+                - 輸出：目前頻率（例如 123456）<br>
+                - 可用除法器或查表法近似<br>
                 <br>
-                3. 接 FPGA / SoC 的 PL I/O<br>
-                - 直接把解碼器的輸出端（7或8根線）連到 SoC 開發板上的七段顯示器腳位。<br>
-                - 如果是多位數顯示，要做時分掃描（再多一組位選線）。<br>
-                <br>
-                4. 驗證<br>
-                - 在 ModelSim 裡模擬 AXI 寫入 → 暫存器改變 → 解碼器輸出 → 顯示器段選。<br>
-                - 在硬體上量測 I/O 腳位電平是否與預期段選相符。<br>
+                📦 seven_seg_display.v<br>
+                - 輸入：頻率數值（例如 123456）<br>
+                - 輸出：段選（a位6）<br>
+                - 使用掃描方式顯示多位數字<br>
+            </p>
+            <p class="verify">
+                <h3>🧪 驗證方式</h3>
+                - 在 ModelSim 中模擬 DDS 的 ΔPhase 改變，觀察頻率計算結果是否正確<br>
+                - 驗證七段顯示器是否正確顯示頻率數字<br>
+                - 在硬體上按鍵改變 ΔPhase，觀察七段顯示器是否跟著更新<br>
+            </p>
+            <p class="tips">
+                <h3>🧠 小技巧</h3>
+                - 若除法器太重，可用 ROM 查表法：ΔPhase → 頻率對應表<br>
+                - 若七段顯示器位數不夠，可顯示 kHz 或 MHz 為單位（例如顯示 "123.4k"）<br>
+                - 若使用 PWM 輸出波形，也可用頻率計數器量測實際輸出頻率<br>
             </p>
             <p class="nextweek">
                 下週進度 :
             </p>
-    </div>
         </div>
+    </div>
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
