@@ -179,7 +179,8 @@
                 網路上搜尋一些有關 DDS 的資料
             </p>
             <p class="reflection">
-                問題與進度 : 影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。由於理解能力稍弱，
+                問題與進度 : <br>
+                影片時間較長，未能一次看完，但已完成原理解讀與資料搜集。由於理解能力稍弱，
                 需反覆觀看影片以加深記憶。
             </p>
             <div class="video-box">
@@ -207,7 +208,8 @@
                 觀看剩餘影片（實作部分）並與組員討論 Quartus II 的應用方式
             </p>
             <p class="reflection">
-                問題與進度 : 跟著影片在 Quartus 實作並學習 IP ROM 存取。起初不理解 .mif 產出流程，
+                問題與進度 : <br>
+                跟著影片在 Quartus 實作並學習 IP ROM 存取。起初不理解 .mif 產出流程，
                 多虧老師協助才了解如何產生。
             </p>
             <div class="video-box">
@@ -229,7 +231,8 @@
                 反覆觀看影片加深記憶，完成 .mif 檔產生並實作多種波形
             </p>
             <p class="reflection">
-                問題與進度 : 起初 PyCharm 產出檔案正確，但位寬設錯導致波形異常。修正後成功產出正弦、方波、
+                問題與進度 : <br>
+                起初 PyCharm 產出檔案正確，但位寬設錯導致波形異常。修正後成功產出正弦、方波、
                 三角波與鋸齒波。
             </p>
             <h3>模擬參數：DEPTH = 2048, WIDTH = 10, 最大振幅 = 255</h3>
@@ -255,6 +258,7 @@
                 探索不同位寬、深度對波形影響，並搜尋 DDS 實作資料
             </p>
             <p class="reflection">
+                問題與進度 : <br>
                 因為還無法拿到 FPGA 板模擬的情況，只能繼續使用 Quartus II 模擬更多不同位寬、深度及振幅的波形<br>
                 觀看影片學習如何配腳位、程式燒入 FPGA 板裡，在接到示波器上觀察波形。
             </p>
@@ -286,7 +290,8 @@
         <h2>Week 5 (7/28–8/3)</h2>
         <div class="week-content">
             <p class="progress">
-                問題與進度 : 因為 Quartus II 18.1 與 13.1 設定差異，下載 13.1 練習影片上 issp 設定與用法<br>
+                問題與進度 : <br>
+                因為 Quartus II 18.1 與 13.1 設定差異，下載 13.1 練習影片上 issp 設定與用法<br>
                 下載後 RTL Simulation 無法跑出波形圖，將路徑修正後成功顯示；ROM 初始化錯誤則改用 Verilog HDL file 即解決。
             </p>
             <p class="answer">
@@ -350,7 +355,8 @@
     <div class="week" data-aos="fade-up">
         <h2>Week 7 (8/11–8/17)</h2>
         <div class="week-content">
-            <p class="progress">問題與進度 : 將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？並與組員線上討論其流程及完成方法。</p>
+            <p class="progress">問題與進度 : <br>
+            將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？並與組員線上討論其流程及完成方法。</p>
             <h3>七段顯示器必須把它接到數位邏輯端，而不是 DAC 或 波形ROM。以下是我參考的實作方式</h3>
             <p class="answer">
                 +------------------+       +------------------+       +------------------------+<br>
@@ -398,7 +404,8 @@
                 - 若使用 PWM 輸出波形，也可用頻率計數器量測實際輸出頻率<br>
             </p>
             <p class="meeting">
-                Meeting result : 在與組員討論後決定使用 ROM 查表法。此方法是先用 Python 產生一個計算好頻率的.mif，利用 IP function匯入至 ROM。<br>
+                Meeting result : <br>
+                在與組員討論後決定使用 ROM 查表法。此方法是先用 Python 產生一個計算好頻率的.mif，利用 IP function匯入至 ROM。<br>
                 Quareus II Code 裡會先寫好 fout 計算公式讓 Code 去 ROM 抓取大約的頻率值顯示在七段顯示器上。<br>
                 此方法還在嘗試中，如無法實現我們期許的解果，將會使用其它方法完成。
             </p>
