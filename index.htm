@@ -114,6 +114,10 @@
             color: hotpink;
         }
 
+        .meeting {
+            color: hotpink;
+        }
+
         .video-box {
             background-color: #252539;
             padding: 12px;
@@ -346,7 +350,7 @@
     <div class="week" data-aos="fade-up">
         <h2>Week 7 (8/11–8/17)</h2>
         <div class="week-content">
-            <p class="progress">問題與進度 : 將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？</p>
+            <p class="progress">問題與進度 : 將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？並與組員線上討論其流程及完成方法。</p>
             <h3>七段顯示器必須把它接到數位邏輯端，而不是 DAC 或 波形ROM。以下是我參考的實作方式</h3>
             <p class="answer">
                 +------------------+       +------------------+       +------------------------+<br>
@@ -392,6 +396,11 @@
                 - 若除法器太重，可用 ROM 查表法：ΔPhase → 頻率對應表<br>
                 - 若七段顯示器位數不夠，可顯示 kHz 或 MHz 為單位（例如顯示 "123.4k"）<br>
                 - 若使用 PWM 輸出波形，也可用頻率計數器量測實際輸出頻率<br>
+            </p>
+            <p class="meeting">
+                Meeting result : 在與組員討論後決定使用 ROM 查表法。此方法是先用 Python 產生一個計算好頻率的.mif，利用 IP function匯入至 ROM。<br>
+                Quareus II Code 裡會先寫好 fout 計算公式讓 Code 去 ROM 抓取大約的頻率值顯示在七段顯示器上。<br>
+                此方法還在嘗試中，如無法實現我們期許的解果，將會使用其它方法完成。
             </p>
             <p class="nextweek">
                 下週進度 :
