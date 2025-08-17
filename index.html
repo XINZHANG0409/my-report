@@ -366,10 +366,8 @@
     <div class="week" data-aos="fade-up">
         <h2>Week 7 (8/11–8/17)</h2>
         <div class="week-content">
-            <p class="progress">
-                問題與進度 : <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？並與組員線上討論其流程及完成方法。
-            </p>
+            <p class="progress">問題與進度 : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;將七段顯示器之 Code 寫進 Quartus II。思考七段顯示器應接在何處？並與組員線上討論其流程及完成方法。</p>
             <h3>七段顯示器必須把它接到數位邏輯端，而不是 DAC 或 波形ROM。以下是我參考的實作方式</h3>
             <p class="answer">
                 +------------------+       +------------------+       +------------------------+<br>
@@ -378,17 +376,17 @@
                 +------------------+       +------------------+       +------------------------+<br>
                 <br>
                 需要根據 DDS 的參數，計算出目前的輸出頻率<br>
-                <ul>
-                    <li>公式 : f_out = (ΔPhase × f_clk) / 2^N</li>
-                    <li>ΔPhase：Phase Increment 值（可以用一個暫存器儲存）</li>
-                    <li>f_clk：系統時鐘頻率（例如 50 MHz）</li>
+                <ul> 
+                    <li>公式 : f_out = (ΔPhase × f_clk) / 2^N</li> 
+                    <li>ΔPhase：Phase Increment 值（可以用一個暫存器儲存）</li> 
+                    <li>f_clk：系統時鐘頻率（例如 50 MHz）</li> 
                     <li>N：Phase accumulator 的位元數（例如 32）</li>
-                </ul>
+                </ul>  
                 這個計算可以在 RTL 中用除法器實作，或用查表法近似。<br>
                 七段顯示器控制模組<br>
                 <ul>
-                    <li>將計算出的頻率（例如 123456 Hz）轉成 BCD 或十進位數字</li>
-                    <li>使用 7-segment decoder 將每個數字轉成段選訊號</li>
+                    <li>將計算出的頻率（例如 123456 Hz）轉成 BCD 或十進位數字</li> 
+                    <li>使用 7-segment decoder 將每個數字轉成段選訊號</li> 
                     <li>若是多位數顯示器，使用 位選掃描（multiplexing） 控制哪一位亮起</li>
                 </ul>
             </p>
@@ -437,37 +435,35 @@
     <div class="week" data-aos="fade-up">
         <h2>Week 8 (8/18–8/24)</h2>
         <div class="week-content">
-            <p class="progress">
-                問題與進度 : <br>
+            <p class="progress">問題與進度 : <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </p>
-            <p class="nextweek">
-                下週進度 : <br>
+            <p class="nextweek">下週進度 : <br>
             </p>
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true });
 
-        // 單週開關
-        document.querySelectorAll('.week h2').forEach(heading => {
-            heading.addEventListener('click', () => {
-                const content = heading.nextElementSibling;
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            // 單週開關
+            document.querySelectorAll('.week h2').forEach(heading => {
+                heading.addEventListener('click', () => {
+                    const content = heading.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
             });
-        });
 
-        // 全部展開／收合
-        let allVisible = false;
-        document.getElementById('toggle-all').addEventListener('click', () => {
-            document.querySelectorAll('.week .week-content').forEach(content => {
-                content.style.display = allVisible ? 'none' : 'block';
+            // 全部展開／收合
+            let allVisible = false;
+            document.getElementById('toggle-all').addEventListener('click', () => {
+                document.querySelectorAll('.week .week-content').forEach(content => {
+                    content.style.display = allVisible ? 'none' : 'block';
+                });
+                allVisible = !allVisible;
+                document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
             });
-            allVisible = !allVisible;
-            document.getElementById('toggle-all').innerText = allVisible ? '收合全部' : '展開全部';
-        });
-    </script>
+        </script>
 </body>
 </html>
