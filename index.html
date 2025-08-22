@@ -436,7 +436,16 @@
         <h2>Week 8 (8/18–8/24)</h2>
         <div class="week-content">
             <p class="progress">問題與進度 : <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;與組員互相討論進度與實作方法。雖然編譯過了，RTL Simulation 圖也能跑出來，但七段顯示器的值與頻率不一樣。
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;與組員互相討論進度與實作方法。雖然編譯過了，RTL Simulation 圖也能跑出來，但七段顯示器的值似乎與頻率不一樣。
+            </p>
+            <p class="answer">
+                實作疑問 : <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RTL Viewer 裡看到的是一個加法器&一個乘法器，而不是兩個加法器。這是因為在直接數位合成（DDS）系統中，需要同時完成「相位增量的累加」和「輸入頻率字（Fword）或振幅字的縮放」兩項運算，這兩種運算本質上不同。<br>
+                <ul>
+                    <li>加法器（Add）負責將前一次相位累加結果與新的相位增量相加，維持相位累加器（phase_acc）的更新。</li>
+                    <li>乘法器（Multiplier）則用來將輸入的頻率字或振幅字乘上一個固定係數（如 2^{32}/f_s 的定點縮放），才能得到合法的相位增量或輸出幅值。</li>
+                </ul>
+                單純的兩個加法器只能不斷將數值相加，無法完成「乘法」這個縮放動作，因此必須配置一組專門的乘法器。
             </p>
             <h3>DDS module</h3>
             <img src="images/DDS_A1.png" alt="DDS 模組">
