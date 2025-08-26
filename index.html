@@ -15,25 +15,40 @@
   rel="stylesheet"
   href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <style>
+        .social-icons {
+            position: absolute;
+            top: 65px;
+            left: 300px;
+        }
 
-    .social-icons {
-      position: absolute;
-      top: 70px;
-      left: 300px;
-    }
+        .social-icons a {
+            display: inline-block;
+            margin-right: 25px;
+            font-size: 30px;
+            color: #12b0ee;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
 
-    .social-icons a {
-      display: inline-block;
-      margin-right: 16px;
-      font-size: 30px;
-      color: #12b0ee;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+        .social-icons a:hover {
+            color: #ffffff;
+        }
 
-    .social-icons a:hover {
-      color: #ffffff;
-    }
+        .name {
+            position: absolute;
+            top: 90px;
+            left: 290px;
+            font-size: 14px;
+            color: #12b0ee;
+        }
+
+        .name_2 {
+            position: absolute;
+            top: 90px;
+            left: 350px;
+            font-size: 14px;
+            color: #12b0ee;
+        }
 
         :root {
             --bg-color: #121212;
@@ -210,6 +225,9 @@
       <i class="fas fa-envelope"></i>
     </a>
     </div>
+
+    <p class="name">GitHub</p>
+    <p class="name_2">Outlook</p>
 
     <h1>DDS 專題週誌</h1>
 
@@ -529,7 +547,6 @@
         <script>
             AOS.init({ duration: 800, once: true });
 
-            // 單週開關
             document.querySelectorAll('.week h2').forEach(heading => {
                 heading.addEventListener('click', () => {
                     const content = heading.nextElementSibling;
@@ -537,7 +554,6 @@
                 });
             });
 
-            // 全部展開／收合
             let allVisible = false;
             document.getElementById('toggle-all').addEventListener('click', () => {
                 document.querySelectorAll('.week .week-content').forEach(content => {
