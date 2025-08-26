@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <title>DDS 專題週誌</title>
 
-    <!-- Google Fonts: Q 體 M PLUS Rounded 1c -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
           rel="stylesheet">
 
-    <!-- AOS 動畫 CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+    <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <style>
+
+    .social-icons {
+      position: absolute;
+      top: 70px;
+      left: 300px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 16px;
+      font-size: 30px;
+      color: #12b0ee;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ffffff;
+    }
+
         :root {
             --bg-color: #121212;
             --card-color: #1e1e2f;
@@ -23,7 +44,6 @@
             --shadow-color: rgba(0, 255, 255, 0.2);
         }
 
-        /* 全站字型改為 Q 體 */
         body {
             font-family: "M PLUS Rounded 1c", sans-serif;
             background-color: var(--bg-color);
@@ -91,7 +111,6 @@
                 box-shadow: 0 0 30px var(--shadow-color);
             }
 
-        /* 內容預設隱藏 */
         .week-content {
             display: none;
         }
@@ -177,6 +196,21 @@
     </style>
 </head>
 <body>
+    <div class="social-icons">
+    <a
+      href="https://github.com/XINZHANG0409"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <i class="fab fa-github"></i>
+    </a>
+
+    <a href="mailto:xinzhang.huang0409" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    </div>
+
     <h1>DDS 專題週誌</h1>
 
     <button id="toggle-all">展開全部</button>
