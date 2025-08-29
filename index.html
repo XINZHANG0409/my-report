@@ -551,10 +551,28 @@
             <img src="images/S_B.png" alt="RTL_B 模擬">
             <h3>RTL Viewer</h3>
             <img src="images/RTL_AAAA.png" alt="RTL_B 模擬">
+            <h3>RTL Viewer DDS_final 元件內部</h3>
             <img src="images/RTL_AAAB.png" alt="RTL_B 模擬">
+            <h3>RTL Viewer Seg7_top 元件內部</h3>
             <img src="images/RTL_AAAC.png" alt="RTL_B 模擬">
             <h3>RTL Simulation</h3>
             <img src="images/RTL_AAAD.png" alt="RTL_B 模擬">
+            <p class="func">實作錯誤與問題 : <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此波形值是正確的，但如 RTL Simulation 圖所示，seg 一直顯示「1111111」，因為七段是寫共陰極之程式碼 ，"1" 表示不顯示，所以七段是一個未顯示的狀態。<br>
+            </p>
+            <p class="answer">
+                此問題可能是 : <br>
+                <ul>
+                    <li>Quartus 程式並沒有抓取到計算好的頻率，甚至未機算出來</li>
+                    <li>Quartus 未執行查表，找出對應的頻率</li>
+                    <li>Phase.mif ( Python 生成的頻率表 ) 未成功匯入 IP Catalog 的 ROM 裡</li>
+                </ul>
+            </p>
+            <h3>產生波形.mif檔之程式</h3>
+            <img src="images/Python_A.png" alt="RTL_B 模擬">
+            <img src="images/Python_B.png" alt="RTL_B 模擬">
+            <h3>產生頻率.mif檔之程式</h3>
+            <img src="images/Python_C.png" alt="RTL_B 模擬">
             <p class="nextweek">
                 下週進度 : 持續研究 DDS to 7seg，並與教授討論目前的進度與問題，尋求解決方法。<br>
                 上網查找相關資料作為操考。
