@@ -612,6 +612,31 @@
                 開始整理暑假這10週的資料及實作成果，並撰寫國科會成果報告書。
             </P>
         </div>
+    </div>
+
+    <div class="week" data-aos="fade-up">
+        <h2>Week 11 (9/8–9/14)</h2>
+        <div class="week-content">
+            <p class="progress">問題與進度 : <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                拿到 FPGA 板（Altera DE2-115）後， 因驅動程式無法讀取，導致目前還無法使用 FPGA 板進行實驗
+                但在配 PIN 腳時發現七段顯示器只有一顆，所以是一顆七段顯示器在顯示四個數字，這並不是我們想要的結果，
+                所以還需要再寫三顆氣段顯示器才能達到我們想要的結果。
+            </p>
+            <h3>此為 Pin Planner</h3>
+            <img src="images/PIN_AAA.png" alt="RTL_A 模擬">
+            <p class="func">
+                如上圖，seg 只有 seg[0] ~ seg[6]，所以輸出只有一顆七段顯示器，這可能造成七段顯示器只顯示一個數字，或著一顆七段顯示器在跑四個數字。
+            </p>
+            <h3>裝置管理員介面</h3>
+            <img src="images/NNN_AAA.png" alt="RTL_A 模擬">
+            <p class="func">
+                出現代碼 39 錯誤，表示驅動程式無法讀取，嘗試手動更新驅動程式也無法解決此問題。<br>
+                因為 Altera USB-Blaster 出現驚嘆號，即使用 Quartus II 18.1 也無法讀取 FPGA 板。
+            </p>
+            <p class="nextweek">下週進度 : </p>
+        </div>
+    </div>
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
