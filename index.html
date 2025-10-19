@@ -642,11 +642,19 @@
     </div>
 
      <div class="week" data-aos="fade-up">
-        <h2>Week 12、13 (9/15–9/28)</h2>
+        <h2>Week 12-18(9/15–10/19)</h2>
         <div class="week-content">
             <p class="progress">問題與進度 : <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因為 DE2-115 無法讀取導致無法進行燒入，期間嘗試重新安裝 Quartus II 13.1、18.1 並更新驅動程式，但仍無法解決問題。<br>
+                最後是將裝置安全裡的核心隔離功能關閉後，才成功讀取 FPGA 板並進行燒入驗證模擬。最後有成功顯示頻率在七段顯示器上。
             </p>
+            <p class="answer">如何利用指撥開關控制輸入頻率 : <br>
+                <ul>
+                    <li>DE2-115上有18個指撥開關，我們輸入頻率字(Fword)設為100000，轉成二進位為"11000011010100000"所以 SW0 ~ SW16 是用來控制頻率字輸入，將指撥開關往上扳即為"1"對應11000011010100000，即可完成輸入</li>
+                </ul>
+            </p>
+            <h3>此圖為將程式燒錄 DE2-115 後的結果</h3>
+            <img src="images/IMG_0439.png" alt="DE2-115 燒錄結果">
         <p class="nextweek">下週進度 : </p>
         </div>
     </div>
