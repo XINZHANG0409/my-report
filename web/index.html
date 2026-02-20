@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>芝好生活</title>
+  <meta name="description" content="芝好生活提供高品質靈芝產品，雲南嚴選原料，宜蘭出貨，安心有保障。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top Bar / Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="回到首頁">
+        <span class="brand-mark">芝</span>
+        <span class="brand-name">芝好生活</span>
+      </a>
+
+      <nav class="nav" aria-label="主導覽">
+        <a class="nav-link" href="products.html">產品介紹</a>
+        <a class="nav-link" href="about.html">關於我們</a>
+        <a class="nav-link" href="contact.html">聯繫我們</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="展開選單" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a class="mobile-link" href="products.html">產品介紹</a>
+      <a class="mobile-link" href="about.html">關於我們</a>
+      <a class="mobile-link" href="contact.html">聯繫我們</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="badge">雲南嚴選・宜蘭出貨</p>
+          <h1>芝好生活</h1>
+          <p class="lead">
+            我們提供高品質靈芝產品，從雲南選用優質原料，
+            空運到台灣後由宜蘭發貨寄送，讓你買得安心、用得放心。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="products.html">立即看產品</a>
+            <a class="btn ghost" href="about.html">了解品牌故事</a>
+          </div>
+
+          <div class="trust-row" aria-label="信任標章">
+            <div class="trust-item">
+              <div class="trust-title">嚴選來源</div>
+              <div class="trust-desc">雲南地區原料</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-title">品質把關</div>
+              <div class="trust-desc">批次控管</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-title">快速出貨</div>
+              <div class="trust-desc">宜蘭寄送</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="hero-card" role="img" aria-label="產品視覺示意">
+          <div class="hero-card-inner">
+            <p class="hero-card-title">今日推薦</p>
+            <p class="hero-card-name">靈芝切片／靈芝粉／靈芝膠囊</p>
+            <p class="hero-card-note">（可在 products.html 放完整規格）</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">為什麼選擇我們</h2>
+        <p class="section-subtitle">清楚的資訊與一致的品質，是我們最在意的事。</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>來源透明</h3>
+            <p>原料來自雲南地區，挑選品質穩定的靈芝原料。</p>
+          </article>
+          <article class="card">
+            <h3>嚴格品管</h3>
+            <p>每批產品經過品質控制，確保符合標準。</p>
+          </article>
+          <article class="card">
+            <h3>友善購買</h3>
+            <p>介面簡單、好找資訊，行動裝置也好閱讀。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">熱門產品</h2>
+            <p class="section-subtitle">先放 3 個主力品項，讓使用者一眼懂你在賣什麼。</p>
+          </div>
+          <a class="link" href="products.html">看全部產品 →</a>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-thumb"></div>
+            <h3>靈芝切片</h3>
+            <p class="muted">日常沖泡，方便使用。</p>
+            <a class="btn small" href="products.html">查看</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-thumb"></div>
+            <h3>靈芝粉</h3>
+            <p class="muted">可加入飲品或料理。</p>
+            <a class="btn small" href="products.html">查看</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-thumb"></div>
+            <h3>靈芝膠囊</h3>
+            <p class="muted">外出攜帶更便利。</p>
+            <a class="btn small" href="products.html">查看</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA：改成跳聊天室（LINE） -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>想快速了解適合你的產品？</h2>
+          <p class="muted">直接開啟聊天室，我們會依你的需求提供建議。</p>
+        </div>
+
+        <!-- ✅ 這裡：改成 LINE 聊天連結（把 @YOUR_LINE_ID 換成你的） -->
+        <a class="btn primary"
+           href="https://line.me/R/ti/p/@YOUR_LINE_ID"
+           target="_blank"
+           rel="noopener">
+          前往聯繫我們
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand footer-brand">
+        <span class="brand-mark">芝</span>
+        <span class="brand-name">芝好生活</span>
+      </div>
+      <p class="muted">© <span id="year"></span> 芝好生活. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
